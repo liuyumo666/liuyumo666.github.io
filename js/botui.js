@@ -22,23 +22,23 @@ function bot_ui_ini() {
     var botui = new BotUI("hello-cungudafa")
     botui.message.add({
         delay: 800,
-        content: "Hi, there👋"
+        content: "Hi, 你好👋"
     }).then(function () {
         botui.message.add({
             delay: 1100,
-            content: "这里是 lcy"
+            content: "这里是lcy的个人博客"
         }).then(function () {
             botui.message.add({
                 delay: 1100,
-                content: "这是我的个人博客~"
+                content: "有什么想问的吗？"
             }).then(function () {
                 botui.action.button({
                     delay: 1600,
                     action: [{
-                        text: "然后呢？ 😃",
+                        text: "做个自我介绍吧？ 😃",
                         value: "sure"
                     }, {
-                        text: "少废话！ 🙄",
+                        text: "没兴趣！ 🙄",
                         value: "skip"
                     }]
                 }).then(function (a) {
@@ -51,7 +51,7 @@ function bot_ui_ini() {
     var sure = function () {
             botui.message.add({
                 delay: 600,
-                content: "😘"
+                content: "😘莫问题"
             }).then(function () {
                 secondpart()
             })
@@ -59,7 +59,7 @@ function bot_ui_ini() {
         end = function () {
             botui.message.add({
                 delay: 600,
-                content: "![...](https://view.moezx.cc/images/2018/05/06/a1c4cd0452528b572af37952489372b6.md.jpg)"
+                content: "![...](https://www.btcha.com/uploadfile/2017/0610/20170610023607565.jpg)"
             })
         },
         secondpart = function () {
@@ -69,29 +69,29 @@ function bot_ui_ini() {
             }).then(function () {
                 botui.message.add({
                     delay: 1500,
-                    content: "立志当一名程序员"
+                    content: "计算机专业"
                 }).then(function () {
                     botui.message.add({
                         delay: 1200,
-                        content: "将敲代码看成一种快乐"
+                        content: "主修HTML/CSS/javaScript还有一堆框架。"
                     }).then(function () {
                         botui.message.add({
                             delay: 1500,
-                            content: "主修JS和HTM,CSS,java和mysql也会，但只会一点点"
+                            content: "java和mysql也会，但只会一点点"
                         }).then(function () {
                             botui.message.add({
                                 delay: 1500,
-                                content: "以后想向前端发展"
+                                content: "暂时想向前端发展，以后可能会学一学网络安全"
                             }).then(function () {
                                 botui.message.add({
                                     delay: 1800,
-                                    content: "喜欢看电影打游戏，吃喝玩乐"
+                                    content: "喜欢看电影和玩游戏"
                                 }).then(function () {
                                     botui.action.button({
                                         delay: 1100,
                                         action: [{
-                                            text: "为什么叫lcy呢？🤔",
-                                            value: "why-lcy"
+                                            text: "为什么选择计算机专业呢？🤔",
+                                            value: "why-cungudafa"
                                         }]
                                     }).then(function (a) {
                                         thirdpart()
@@ -106,12 +106,12 @@ function bot_ui_ini() {
         thirdpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "lcy就是名字缩写。"
+                content: "因为小时候打游戏被boss欺负，就想做外挂欺负boss。"
             }).then(function () {
                 botui.action.button({
                     delay: 1500,
                     action: [{
-                        text: "域名有什么含义呢？",
+                        text: "那为什么选择前端呢？",
                         value: "why-cat"
                     }]
                 }).then(function (a) {
@@ -122,16 +122,16 @@ function bot_ui_ini() {
         fourthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "哪来这么多问题？ "
+                content: "因为我大学前三年都沉迷于大学的快乐生活 ，几乎没有学习呀，寻思一年学习网络安全肯定找不到工作"
             }).then(function () {
                 botui.message.add({
                     delay: 1100,
-                    content: "因为23000.shop便宜，三块钱一年"
+                    content: "我可不想毕业家里蹲啊，就想着从大三学的还行的html入手，先进入互联网行业"
                 }).then(function () {
                     botui.action.button({
                         delay: 1500,
                         action: [{
-                            text: "域名有什么含义吗？",
+                            text: "以后有什么打算吗？",
                             value: "why-domain"
                         }]
                     }).then(function (a) {
@@ -143,11 +143,11 @@ function bot_ui_ini() {
         fifthpart = function () {
             botui.message.add({
                 delay: 1E3,
-                content: "23000"
+                content: "呦吼吼，当然是好好学习了。做外挂，学爬虫~~"
             }).then(function () {
                 botui.message.add({
                     delay: 1600,
-                    content: "那么，相遇就是缘分，赏个赞吧 ^_^"
+                    content: "不说了，学习去喽。感谢观看(#^.^#)"
                 })
             })
         } 
