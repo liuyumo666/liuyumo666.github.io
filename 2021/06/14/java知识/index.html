@@ -6,7 +6,7 @@
   <!-- <meta name="baidu-site-verification" content="LukfTcyXmC" /> -->
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a | Hexo</title>
+  <title itemprop="name">java相关知识 | Hexo</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -285,249 +285,535 @@
 
       
       <!-- body -->
-      <div class="blank" style="padding-top: 75px;">
-</div>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/cungudafa/cdn/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
 <div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-        归档</h1>
-      <span class="cat-des">
-        <p>
-          Archives</p>
-      </span>
-      <br>
-      <span class="post-meta-item-icon">
-        <i class="iconfont icon-attention"></i>
-      </span>
-      <span class="post-meta-item-text"><span id="busuanzi_value_page_pv"> </span>
-      </span>
-    </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                  全部展开/收缩</span>
-                ]</p>
-              
-              
-              
-              
-              
-              
-              <h3 class="al_year">2021年</h3>
-              
-              
-              
-              <ul class="al_mon_list">
-                <li class="al_li">
-                  <span class="al_mon" style="cursor: s-resize;">
-                    06月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                  <ul class="al_post_list" style="">
-                    
-                    <li>
-                      <a href="/2021/06/14/asd/">
-                        <span style="color:#0bf;">
-                          14日18:12:38</span>
-                        java相关知识下篇
-                      </a>
-                    </li>
-                    
-              
-              
-              
-              
-              
-                    <li>
-                      <a href="/2021/06/14/%E8%AF%BB%E5%8F%96properties%E4%B9%B1%E7%A0%81/">
-                        <span style="color:#0bf;">
-                          14日18:11:16</span>
-                        读取properties乱码
-                      </a>
-                    </li>
-                    
-              
-              
-              
-              
-              
-                    <li>
-                      <a href="/2021/06/14/java%E7%9F%A5%E8%AF%86%E4%B8%8B%E7%AF%87/">
-                        <span style="color:#0bf;">
-                          14日18:09:53</span>
-                        java相关知识下篇
-                      </a>
-                    </li>
-                    
-              
-              
-              
-              
-              
-                    <li>
-                      <a href="/2021/06/14/java%E7%9F%A5%E8%AF%86/">
-                        <span style="color:#0bf;">
-                          14日18:05:04</span>
-                        java相关知识
-                      </a>
-                    </li>
-                    
-                  </ul>
-                </li>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1"
+        class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content">  -->
+        <!--套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>集合框架的概诉<br>1.集合都是对多个数据进行储存操作的结构，简称Java容器<br>说明：此时的存储，主要的是内存层面的存储，不涉及到持久化存储<br>2.数组在存储多个数据方面的缺点：<br>一旦初始化以后，其长度不可修改<br>数组中提供的方法非常有限，对于增删改查不方便效率不高<br>获取数组中实际元素个数的需求，数组没有现成的方法可用<br>数组储存数据的特点：有序、可重复、对于无序不可重复的需求不能满足<br>3.集合框架<br>|—collection接口：单列集合、用来储存一个一个的对象<br>|—list接口：储存有序的、可重复的数据–&gt;动态数组<br>|—ArrayList、LinkedList、Vector<br>|—Set接口：储存无序的、不可重复的数据 –&gt;集合<br>|—HashSet、LinkedHashSet、TreeSet<br>|—Map接口：双列集合、用来储存键值对(key:value)<br>|—HashMap、LinkedHashMap、TreeMap、HashTable、Properties<br>集合转数组<br>Collection coll = new ArrayList();<br>coll.toArray();<br>数组转集合 List<String> list = Arrays.asList(new String[]{“a”,”b”});<br>测试部分接口<br>public class Test50 {<br>    @Test<br>    public void test1() {<br>        Collection coll = new ArrayList();<br>        //add(Object e) 类似js的append<br>        coll.add(“abc”);<br>        coll.add(123);<br>        coll.add(new Date());<br>        System.out.println(coll.size());//3</p>
+<pre><code>    // coll1.addAll()将Collection放在新的Collection中两个相当于js的concat
+    Collection coll1 = new ArrayList();
+    coll1.add(&quot;def&quot;);
+    coll1.addAll(coll);
+    System.out.println(coll1.size());//4
+&#125;
+
+@Test
+public void test2() &#123;
+    //contains判断集合里面有没有指定内容，比较内容并非地址值
+    Collection coll1 = new ArrayList();
+    coll1.add(&quot;def&quot;);
+    Collection coll2 = new ArrayList();
+    coll2.add(&quot;abc&quot;);
+    boolean b = coll2.contains(new String(&quot;abc&quot;));
+    System.out.println(b);//true
+    //contains 在一个自定义对象中，默认是false，当自定义对象里边重写了equals方法时，就是true，他们比较的是重写toString内容
+    Collection coll3 = new ArrayList();
+    coll3.add(new Person(&quot;cc&quot;, 12));
+    boolean b1 = coll3.contains(new Person(&quot;cc&quot;, 12));
+    System.out.println(b1);//true
+
+
+    //coll1.containsAll(coll2)判断Collection2的元素是否都在Collection1之中
+    Collection coll4 = new ArrayList();
+    coll4.add(&quot;cc&quot;);
+    coll4.add(new Person(&quot;cc&quot;, 12));
+    Collection coll5 = new ArrayList();
+    coll5.add(new Person(&quot;cc&quot;, 12));
+    Collection coll6 = new ArrayList();
+    coll6.add(new Person(&quot;cc&quot;, 12));
+    coll6.add(new Person(&quot;cc&quot;, 12));
+    System.out.println(coll6.size());
+    System.out.println(coll4.containsAll(coll5));//true
+    System.out.println(coll4.containsAll(coll6));//true
+    System.out.println(coll4.containsAll(coll1));//false
+&#125;
+
+
+@Test
+public void test3() &#123;
+    //remove(Object e) 移除指定元素
+    Collection coll = new ArrayList();
+    coll.add(&quot;abc&quot;);
+    coll.add(123);
+    coll.remove(123);
+    System.out.println(coll.toString());//[abc]
+    //如果是移除自定义对象，自定义对象里边也要重写equals方法，否则移除失败
+    coll.add(new Person(&quot;零三&quot;, 12));
+    coll.remove(new Person(&quot;零三&quot;, 12));
+
+    //coll2.removeAll(coll3) 在Collection2中移除Collection3含有的元素
+    Collection coll2 = new ArrayList();
+    coll2.add(&quot;abc&quot;);
+    coll2.add(123);
+    coll2.add(456);
+    Collection coll3 = new ArrayList();
+    coll3.add(123);
+    coll3.add(456);
+    coll3.add(4562);
+    coll2.removeAll(coll3);
+    System.out.println(coll2.toString());//[abc]
+&#125;
+
+@Test
+public void test5() &#123;
+    //coll5.retainAll(coll4); 取coll5与coll4的交集
+    Collection coll4 = new ArrayList();
+    coll4.add(&quot;abc&quot;);
+    coll4.add(123);
+    coll4.add(456);
+    Collection coll5 = new ArrayList();
+    coll5.add(123);
+    coll5.add(456);
+    coll5.add(4562);
+    coll5.retainAll(coll4);
+    System.out.println(coll5.toString());//[123,456]
+&#125;
+
+@Test
+public void test6() &#123;
+    // equals比较两个对象是否相等
+    Collection coll6 = new ArrayList();
+    coll6.add(123);
+    coll6.add(456);
+    Collection coll7 = new ArrayList();
+    coll7.add(123);
+    coll7.add(456);
+    boolean b = coll7.equals(coll6);
+    System.out.println(b);//true
+
+
+    //ArrayList是有序的，不同排序equals不相等。（HashSet是无序的，相等）
+    Collection coll8 = new ArrayList();
+    coll8.add(456);
+    coll8.add(123);
+    Collection coll9 = new ArrayList();
+    coll9.add(123);
+    coll9.add(456);
+    boolean b1 = coll8.equals(coll9);
+    System.out.println(b1);//false
+
+    //如是自定义对象，同样要重写equals方法
+&#125;
+
+@Test
+public void test7() &#123;
+    Collection coll10 = new ArrayList();
+    coll10.add(123);
+    coll10.add(456);
+    //返回当前集合的哈希值
+    System.out.println(coll10.hashCode());
+    //将集合抓换成数组
+    Object[] array = coll10.toArray();
+    for (int i = 0; i &lt; array.length; i++) &#123;
+        System.out.println(array[i]);
+    &#125;
+    //将数组转换成集合
+    List list = Arrays.asList(array);//集合中的动态数组，属于集合
+    System.out.println(list.size());
+
+    //这样写是错误的，会把整个数组识别为1个元素，存的是地址值
+    List list1 = Arrays.asList(new int[]&#123;123, 456&#125;);
+    System.out.println(list1);//[[I@4ee285c6]
+    System.out.println(list1.size());//1
+
+    //可以用包装类型解决这个问题
+    List list2 = Arrays.asList(new Integer[]&#123;123, 456&#125;);
+    System.out.println(list2);//[123, 456]
+    System.out.println(list2.size());//2
+&#125;
+
+//集合元素的遍历Iterator
+@Test
+public void test8() &#123;
+    Collection coll = new ArrayList();
+    coll.add(123);
+    coll.add(456);
+    Iterator iterator = coll.iterator();
+    // 不建议循环体用size，建议用hasNext
+    while (iterator.hasNext()) &#123;
+        System.out.println(iterator.next());
+    &#125;
+&#125;
+
+
+/**
+ * Iterator中的remove，移除当前项
+ * 注意：如未调用next()执行remove或者调用了一次next()且调用了多次remove会抛出IllegalStateException
+ */
+@Test
+public void test9() &#123;
+    Collection coll = new ArrayList();
+    coll.add(123);
+    coll.add(456);
+    coll.add(new String(&quot;零三&quot;));
+    System.out.println(coll.toString());//[123, 456, 零三]
+    Iterator iterator = coll.iterator();
+    // 不建议循环体用size，建议用hasNext
+    while (iterator.hasNext()) &#123;
+        Object o = iterator.next();
+        if (&quot;零三&quot;.equals(o)) &#123;
+            iterator.remove();
+        &#125;
+    &#125;
+    System.out.println(coll.toString());//[123, 456]
+
+    System.out.println(&quot;******************&quot;);
+    //forEach 内部依旧是使用迭代器
+    for (Object obj : coll) &#123;
+        System.out.println(obj);
+    &#125;
+&#125;
+</code></pre>
+<p>}<br>源码分析<br>Collection接口：单列集合，用来储存一个一个对象<br>List接口：储存有序的，可重复数据<br>ArrayList 作为List接口的主要实现类，线程不安全，效率高，底层使用Object[] elementData储存<br>LinkList 对于频繁的插入、删除操作，此类效率比ArrayList高，底层使用双向链表储存<br>Vector 作为List的古老实现类，线程安全的，效率低，底层使用Object[]elementData存储<br>ArrayList的源码分析：<br>JDK7情况下：<br>ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData<br>Set接口：储存无序的、不可重复的数据 –&gt;集合<br>|—HashSet、LinkedHashSet、TreeSet<br>|—Map接口：双列集合、用来储存键值对(key:value)<br>|—HashMap、LinkedHashMap、TreeMap、HashTable、Properties<br>无序性：不等于随机性，默认为hash高至低排序，与添加顺序无关<br>不可重复性：保证添加的元素按照equals()判断，相同元素只能添加一个<br>二、添加元素过程：以HashSet为例：<br>我们向HashSet中添加元素a，首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，此哈希值接着通过某种算法计算出在HashSet底层数组中存放的位置，判断数组此位置是否已经有元素，<br>如果没有则添加成功<br>如果有其他元素，则比较元素a与元素b的hash值：如果hash值不同，则添加成功、如果hash值相同则调用equals方法，如果返回为true添加失败，返回false为添加成功<br>JDK7：元素a放到数组中，指向原来的元素<br>JDK8：原来的元素放在数组中，指向a元素<br>LinkedHashSet作为HashSet的子类，在添加数据的同时，每个数据还维护了两个引用，记录此数据之前与之后的数据<br>对于频繁的遍历操作，LinkedHashSet效率高于HashSet<br>TreeSet:只能添加相同类型的数据<br>Set<br>public class Test53 {<br>    @Test<br>    public void test1(){<br>        Set set = new HashSet();<br>        set.add(123);<br>        set.add(456);<br>        set.add(123);<br>        set.add(new Person(“零三”,18));<br>        set.add(“奥恩”);<br>        set.add(new Person(“零三”,18));<br>        //自定义一样是要重写equals才不能重复<br>         System.out.println(set);//[Person{name=’零三’, age=18}, 456, 123, 奥恩]</p>
+<pre><code>&#125;
+</code></pre>
+<p>}</p>
+<p>public class Person {<br>    private String name;<br>    private int age;</p>
+<pre><code>public Person(String name, int age) &#123;
+    this.name = name;
+    this.age = age;
+&#125;
+
+public String getName() &#123;
+    return name;
+&#125;
+
+public void setName(String name) &#123;
+    this.name = name;
+&#125;
+
+public int getAge() &#123;
+    return age;
+&#125;
+
+public void setAge(int age) &#123;
+    this.age = age;
+&#125;
+
+@Override
+public boolean equals(Object o) &#123;
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Person person = (Person) o;
+    return age == person.age &amp;&amp;
+            Objects.equals(name, person.name);
+&#125;
+
+@Override
+public int hashCode() &#123;
+    return Objects.hash(name, age);
+&#125;
+
+@Override
+public String toString() &#123;
+    return &quot;Person&#123;&quot; +
+            &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; +
+            &quot;, age=&quot; + age +
+            &#39;&#125;&#39;;
+&#125;
+</code></pre>
+<p>}<br>list 方法使用<br>void add(int index,Object ele) 在index位置插入ele元素<br>boolean addAll(int index,Collection eles) 从index位置开始将eles中的所有元素添加进来<br>Object get(int index) 获取指定index的元素<br>int indexOf(Object obj) 返回obj在集合中首次出现的位置<br>int lastIndexOf(Object obj) 返回obj在当前集合末次出现的位置<br>Object remove(int index) 移除指定index位置的元素，并返回此元素<br>Object set(int index,Object ele) 设置指定index位置的元素为ele<br>List subList(int fromIndex,int toIndex) 返回从fromIndex到toIndex位置的子集合<br>public class Test52 {<br>    @Test<br>    public void test(){</p>
+<pre><code>    List list = new ArrayList();
+    // 添加元素
+    list.add(1);
+    list.add(2);
+    list.add(1);
+     System.out.println(list.toString());//[1, 2, 1]
+     //在指定位置添加元素
+    list.add(0,0);
+    System.out.println(list.toString());//[0, 1, 2, 1]
+    //添加一个元素，如果是数组会把一整个数组添加进去
+    List list2 = Arrays.asList(4,5,6);
+    list.add(list2);
+     System.out.println(list.toString());//[0, 1, 2, 1, [4, 5, 6]]
+     // 添加一个元素，如果是数组会把一整个数组拆分再添加进去
+    list.addAll(list2);
+    System.out.println(list.toString());//[0, 1, 2, 1, [4, 5, 6], 4, 5, 6]
+&#125;
+@Test
+public void test1()&#123;
+    List list = new ArrayList();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    updateListIndex(list);
+     System.out.println(list);//[1,2]  删除下标
+
+    updateListObj(list);
+    System.out.println(list);//[1] 删除对象
+&#125;
+public void updateListIndex(List list)&#123;
+    list.remove(2);
+&#125;
+public void updateListObj(List list)&#123;
+    list.remove(new Integer(2));
+&#125;
+</code></pre>
+<p>}</p>
+
+        </div>
+
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/custom/donate/AliPay.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/custom/donate/WeChatPay.png"></li>
               </ul>
-              
-              
-              
-              
-              
-              
-              
-              <ul class="al_mon_list">
-                <li class="al_li">
-                  <span class="al_mon" style="cursor: s-resize;">
-                    05月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                  <ul class="al_post_list" style="">
-                    
-                    <li>
-                      <a href="/2021/05/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-                        <span style="color:#0bf;">
-                          18日17:17:23</span>
-                        JS随机迷宫生成
-                      </a>
-                    </li>
-                    
-              
-              
-              
-              
-              
-                    <li>
-                      <a href="/2021/05/10/hello-world/">
-                        <span style="color:#0bf;">
-                          10日10:20:39</span>
-                        哈喽 沃德
-                      </a>
-                    </li>
-                    
-                  </ul>
-                </li>
-              </ul>
-              
-              
-            </div>
-            <div id="calendar">
-              
-                <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
-    </div>
-</div>
-<style type="text/css">
-    #post-calendar {
-        width: 100%;
-        height: 225px;
-        margin-top: 20px;
-        border-radius: 12px;
-        background-color: rgb(255, 255, 255,0.5);
-    }
-</style>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/js/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
-
-    
-
-    let option = {
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2020-06-14", "2021-06-14"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                width: '1.88679%',
-                height: '15px',
-                color: '#EEEEEE',
-                borderColor: '#FFF',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'cn',
-                fontWeight: 'lighter',
-                fontSize: 12
-            },
-            dayLabel: {
-                show: true,
-                formatter: '{start}  1st',
-                fontWeight: 'lighter',
-                nameMap: ['日',' ','二',' ','四',' ','六',],
-                fontSize: 12
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2020-06-14", 0], ["2020-06-15", 0], ["2020-06-16", 0], ["2020-06-17", 0], ["2020-06-18", 0], ["2020-06-19", 0], ["2020-06-20", 0], ["2020-06-21", 0], ["2020-06-22", 0], ["2020-06-23", 0], ["2020-06-24", 0], ["2020-06-25", 0], ["2020-06-26", 0], ["2020-06-27", 0], ["2020-06-28", 0], ["2020-06-29", 0], ["2020-06-30", 0], ["2020-07-01", 0], ["2020-07-02", 0], ["2020-07-03", 0], ["2020-07-04", 0], ["2020-07-05", 0], ["2020-07-06", 0], ["2020-07-07", 0], ["2020-07-08", 0], ["2020-07-09", 0], ["2020-07-10", 0], ["2020-07-11", 0], ["2020-07-12", 0], ["2020-07-13", 0], ["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0], ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0], ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0], ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0], ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0], ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0], ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0], ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0], ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0], ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0], ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0], ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0], ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0], ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0], ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0], ["2020-11-08", 0], ["2020-11-09", 0], ["2020-11-10", 0], ["2020-11-11", 0], ["2020-11-12", 0], ["2020-11-13", 0], ["2020-11-14", 0], ["2020-11-15", 0], ["2020-11-16", 0], ["2020-11-17", 0], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0], ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 0], ["2020-12-01", 0], ["2020-12-02", 0], ["2020-12-03", 0], ["2020-12-04", 0], ["2020-12-05", 0], ["2020-12-06", 0], ["2020-12-07", 0], ["2020-12-08", 0], ["2020-12-09", 0], ["2020-12-10", 0], ["2020-12-11", 0], ["2020-12-12", 0], ["2020-12-13", 0], ["2020-12-14", 0], ["2020-12-15", 0], ["2020-12-16", 0], ["2020-12-17", 0], ["2020-12-18", 0], ["2020-12-19", 0], ["2020-12-20", 0], ["2020-12-21", 0], ["2020-12-22", 0], ["2020-12-23", 0], ["2020-12-24", 0], ["2020-12-25", 0], ["2020-12-26", 0], ["2020-12-27", 0], ["2020-12-28", 0], ["2020-12-29", 0], ["2020-12-30", 0], ["2020-12-31", 0], ["2021-01-01", 0], ["2021-01-02", 0], ["2021-01-03", 0], ["2021-01-04", 0], ["2021-01-05", 0], ["2021-01-06", 0], ["2021-01-07", 0], ["2021-01-08", 0], ["2021-01-09", 0], ["2021-01-10", 0], ["2021-01-11", 0], ["2021-01-12", 0], ["2021-01-13", 0], ["2021-01-14", 0], ["2021-01-15", 0], ["2021-01-16", 0], ["2021-01-17", 0], ["2021-01-18", 0], ["2021-01-19", 0], ["2021-01-20", 0], ["2021-01-21", 0], ["2021-01-22", 0], ["2021-01-23", 0], ["2021-01-24", 0], ["2021-01-25", 0], ["2021-01-26", 0], ["2021-01-27", 0], ["2021-01-28", 0], ["2021-01-29", 0], ["2021-01-30", 0], ["2021-01-31", 0], ["2021-02-01", 0], ["2021-02-02", 0], ["2021-02-03", 0], ["2021-02-04", 0], ["2021-02-05", 0], ["2021-02-06", 0], ["2021-02-07", 0], ["2021-02-08", 0], ["2021-02-09", 0], ["2021-02-10", 0], ["2021-02-11", 0], ["2021-02-12", 0], ["2021-02-13", 0], ["2021-02-14", 0], ["2021-02-15", 0], ["2021-02-16", 0], ["2021-02-17", 0], ["2021-02-18", 0], ["2021-02-19", 0], ["2021-02-20", 0], ["2021-02-21", 0], ["2021-02-22", 0], ["2021-02-23", 0], ["2021-02-24", 0], ["2021-02-25", 0], ["2021-02-26", 0], ["2021-02-27", 0], ["2021-02-28", 0], ["2021-03-01", 0], ["2021-03-02", 0], ["2021-03-03", 0], ["2021-03-04", 0], ["2021-03-05", 0], ["2021-03-06", 0], ["2021-03-07", 0], ["2021-03-08", 0], ["2021-03-09", 0], ["2021-03-10", 0], ["2021-03-11", 0], ["2021-03-12", 0], ["2021-03-13", 0], ["2021-03-14", 0], ["2021-03-15", 0], ["2021-03-16", 0], ["2021-03-17", 0], ["2021-03-18", 0], ["2021-03-19", 0], ["2021-03-20", 0], ["2021-03-21", 0], ["2021-03-22", 0], ["2021-03-23", 0], ["2021-03-24", 0], ["2021-03-25", 0], ["2021-03-26", 0], ["2021-03-27", 0], ["2021-03-28", 0], ["2021-03-29", 0], ["2021-03-30", 0], ["2021-03-31", 0], ["2021-04-01", 0], ["2021-04-02", 0], ["2021-04-03", 0], ["2021-04-04", 0], ["2021-04-05", 0], ["2021-04-06", 0], ["2021-04-07", 0], ["2021-04-08", 0], ["2021-04-09", 0], ["2021-04-10", 0], ["2021-04-11", 0], ["2021-04-12", 0], ["2021-04-13", 0], ["2021-04-14", 0], ["2021-04-15", 0], ["2021-04-16", 0], ["2021-04-17", 0], ["2021-04-18", 0], ["2021-04-19", 0], ["2021-04-20", 0], ["2021-04-21", 0], ["2021-04-22", 0], ["2021-04-23", 0], ["2021-04-24", 0], ["2021-04-25", 0], ["2021-04-26", 0], ["2021-04-27", 0], ["2021-04-28", 0], ["2021-04-29", 0], ["2021-04-30", 0], ["2021-05-01", 0], ["2021-05-02", 0], ["2021-05-03", 0], ["2021-05-04", 0], ["2021-05-05", 0], ["2021-05-06", 0], ["2021-05-07", 0], ["2021-05-08", 0], ["2021-05-09", 0], ["2021-05-10", 1], ["2021-05-11", 0], ["2021-05-12", 0], ["2021-05-13", 0], ["2021-05-14", 0], ["2021-05-15", 0], ["2021-05-16", 0], ["2021-05-17", 0], ["2021-05-18", 1], ["2021-05-19", 0], ["2021-05-20", 0], ["2021-05-21", 0], ["2021-05-22", 0], ["2021-05-23", 0], ["2021-05-24", 0], ["2021-05-25", 0], ["2021-05-26", 0], ["2021-05-27", 0], ["2021-05-28", 0], ["2021-05-29", 0], ["2021-05-30", 0], ["2021-05-31", 0], ["2021-06-01", 0], ["2021-06-02", 0], ["2021-06-03", 0], ["2021-06-04", 0], ["2021-06-05", 0], ["2021-06-06", 0], ["2021-06-07", 0], ["2021-06-08", 0], ["2021-06-09", 0], ["2021-06-10", 0], ["2021-06-11", 0], ["2021-06-12", 0], ["2021-06-13", 0], ["2021-06-14", 4]]
-        }]
-
-    };
-
-    myChart.setOption(option);
-</script>
-              
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent">
+        </div>
+        <!-- 评分 -->
+        <div class="single-reward">
+          
+          <!-- 五星评分 -->
+<div id="wpac-rating"></div>
+<script type="text/javascript">
+wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'Rating', id: 23889});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = 'https://embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+<!-- <a target="_blank" rel="noopener" href="https://widgetpack.com" class="wpac-cr">Star Rating WIDGET PACK</a> -->
+          
+        </div>
+        <!-- 自定义署名方式 -->
+        <footer class="post-footer">
+          <div class="post-lincenses" style="color: #ff9966;">
+            欢迎转载，转载时请注明来源哦！
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" style="color: #ff9966;" target="_blank"
+              rel="nofollow">
+              <i class="fa fa-creative-commons" aria-hidden="true"></i>ncsa4.0</a>
+          </div>
+          
+          <div class="post-tags" style="color: #a39391">
+            <span><i class="fa fa-tags"></i>
+              
+            </span>
+            <span>
+              <i class="iconfont icon-file"></i>
+              
+            </span>
+          </div>
+          
+          <div class="post-share" >
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+        <!-- <div class="tag-cloud">
+          <div class="tag-cloud-title">
+          </div>
+          <div class="tag-cloud-tags">
+            
+          </div>
+        </div> -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+        <div class="post-nepre half previous">
+          
+            <a href="/2021/06/14/java%E7%9F%A5%E8%AF%86%E4%B8%8B%E7%AF%87/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src=""
+                  style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)"
+                  src="">
+              </div>
+              <span class="label">Previous Post</span>
+              <div class="info">
+                <h3>java相关知识下篇</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+          
+          
+          
+          <div class="post-nepre half next">
+            
+              <a href="/2021/05/18/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="next">
+                <div class="background">
+                  <img class="lazyload" src="https://cdn.jsdelivr.net/gh/cungudafa/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src=""
+                    style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;"
+                    onerror="imgError(this,3)" src="">
+                </div>
+                <span class="label">Next Post</span>
+                <div class="info">
+                  <h3>JS随机迷宫生成</h3>
+                  <hr>
+                </div>
+              </a>
+            </div>
+            
+      </section>
+      <!-- 加密文章隐藏评论 -->
+      <section class="comment" >
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" class="comment"></div> 
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+  	clientID: '',
+  	clientSecret: '',
+  	repo: 'liuyumo666.github.io',
+  	owner: 'liuyumo666',
+	admin: ['liuyumo'],
+	distractionFreeMode: 'true',
+    id: md5(location.pathname)
+})
+gitalk.render('gitalk-container') 
+</script>
+
+      </section>
+      <!-- 加密文章隐藏作者信息 -->
+      
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+<!--评论配置-->
+
+
+    <div id="vcomments"></div>
+    <script src="https://unpkg.com/valine/dist/Valine.min.js"></script><!-- 最新版 -->
+    <style>
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("https://gitee.com/cungudafa/source/raw/master/img/gif/Sitich/Sitich2.gif") 100% 100% no-repeat;
+    }
+    </style>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            enableQQ: true,
+            boolean: true,
+            appId: 'PbjtewPXdTmKj6ODd122Ym2o-gzGzoHsz',
+            appKey: 'mL0LjCWdcxDi6izh4e1ds2aP',
+            //notify: 'false' === 'true',
+            //verify: 'true' === 'true',
+            visitor: 'false' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'en',
+            placeholder: '大家文明留言~',
+            requiredFields: ['nick','mail'], //设置必填项
+            // 设置Bilibili表情包地址
+            emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+            // 表情title和图片映射
+            emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+            "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+            "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+            "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+            "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+            "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+            "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+            "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+            "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+            "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+            "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+            "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+            "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+            "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+            "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+            "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+            "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+            "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+            "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+            "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+            "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+            "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+            "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+            "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+            "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+            "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+            "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+            "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+            "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+            "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+            "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+            "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+            "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+            "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+            "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+            "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+            "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+            "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+            "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+            "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+            "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+            "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+            "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+            "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+            "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+            "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+            "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+            "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+            "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+            "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+                // ... 更多表情
+            }
+        });
+    </script>
+
+    <!-- 
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author;
+            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+        })
+    </script>
+     -->
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container" class="comment"></div> 
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script type="text/javascript">
+	var gitalk = new Gitalk({
+  	clientID: '',
+  	clientSecret: '',
+  	repo: 'liuyumo666.github.io',
+  	owner: 'liuyumo666',
+	admin: ['liuyumo'],
+	distractionFreeMode: 'true',
+    id: md5(location.pathname)
+})
+gitalk.render('gitalk-container') 
+</script>
+
+
       <!-- body.end -->
     </div>
     <!-- search -->    
